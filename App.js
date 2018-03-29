@@ -155,8 +155,6 @@ export default class App extends React.Component {
   };
 
   _handleImagePicked = async pickerResult => {
-    let uploadResponse, uploadResult;
-
     try {
       this.setState({ uploading: true });
 
@@ -165,9 +163,7 @@ export default class App extends React.Component {
         this.setState({ image: uploadUrl });
       }
     } catch (e) {
-      console.log({ uploadResponse });
-      console.log({ uploadResult });
-      console.log({ e });
+      console.log(e);
       alert('Upload failed, sorry :(');
     } finally {
       this.setState({ uploading: false });
@@ -189,9 +185,9 @@ async function uploadImageAsync(uri) {
     task.on(
       'state_changed',
       () => {
-        /* noop */
+        /* noop but you can track the progress here */
       },
-      reject,
+      reject /* this is where you would put an error callback! */,
       () => resolve(task.snapshot.downloadURL)
     );
   });
