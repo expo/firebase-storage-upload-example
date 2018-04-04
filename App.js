@@ -179,16 +179,6 @@ async function uploadImageAsync(uri) {
     .ref()
     .child(uuid.v4());
 
-  const task = ref.put(blob);
-
-  return new Promise((resolve, reject) => {
-    task.on(
-      'state_changed',
-      () => {
-        /* noop but you can track the progress here */
-      },
-      reject /* this is where you would put an error callback! */,
-      () => resolve(task.snapshot.downloadURL)
-    );
-  });
+  const snapshot = await ref.put(blob);
+  return snapshot.downloadURL;
 }
