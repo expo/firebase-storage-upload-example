@@ -11,7 +11,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { Constants, ImagePicker } from 'expo';
+import { Constants, ImagePicker, Permissions } from 'expo';
 import uuid from 'uuid';
 import * as firebase from 'firebase';
 
@@ -35,6 +35,11 @@ export default class App extends React.Component {
     image: null,
     uploading: false,
   };
+  
+  async componentDidMount() {
+    await Permissions.askAsync(Permissions.CAMERA_ROLL);
+    await Permissions.askAsync(Permissions.CAMERA);
+  }
 
   render() {
     let { image } = this.state;
