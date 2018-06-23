@@ -185,5 +185,5 @@ async function uploadImageAsync(uri) {
     .child(uuid.v4());
 
   const snapshot = await ref.put(blob);
-  return snapshot.downloadURL;
+  return snapshot.ref.getDownloadURL();
 }
