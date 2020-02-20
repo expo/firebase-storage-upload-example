@@ -1,5 +1,3 @@
-# firebase-storage-upload-example
+# Firebase Storage Upload Example
 
-This project demonstrates how you can upload images (and other files) to Firebase Storage. Read App.js for more info, in particular the `uploadImageAsync` function.
-
-Read more about the Firebase Storage API here: https://firebase.google.com/docs/storage/web/upload-files
+**This example has moved to [examples/with-firebase-storage-upload](https://github.com/expo/examples/tree/master/with-firebase-storage-upload)**
